@@ -505,6 +505,159 @@
   .resume-link:hover{ color:var(--accent); }
   footer{ padding:26px 0 40px; }
   .footer-row{ display:flex; justify-content:space-between; font-size:12px; color:var(--text-dim); flex-wrap:wrap; gap:10px; }
+
+  /* =====================================================================
+     MOBILE REFINEMENTS (phones, <= 720px)
+     Bigger images (edge-to-edge), tighter spacing, swipeable galleries,
+     collapsible long copy, a scrollable section nav, touch-friendly targets.
+     ===================================================================== */
+  .m-more{ display:none; }
+  .mock.compare .compare-range{ touch-action:pan-y; }
+
+  @media (max-width:720px){
+    html{ scroll-padding-top:92px; }
+    body{ overflow-x:hidden; }
+    .wrap{ padding:0 16px; }
+
+    /* chrome */
+    .ruler{ height:26px; }
+    .ruler-label{ left:16px; top:5px; font-size:10px; }
+    .ruler-label.right{ display:none; }
+    .topbar{ flex-wrap:wrap; padding:10px 16px 0; row-gap:0; }
+    .brand{ font-size:16px; }
+    .theme-toggle{ min-height:36px; padding:6px 14px; }
+    nav.links{
+      display:flex; order:3; width:100%; gap:8px; font-size:13px;
+      overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none;
+      margin:8px -16px 0; padding:0 16px 10px;
+    }
+    nav.links::-webkit-scrollbar{ display:none; }
+    nav.links a{
+      flex:none; opacity:1; padding:8px 14px; min-height:36px;
+      border:1px solid var(--line); border-radius:999px; background:var(--surface);
+    }
+
+    /* hero */
+    .hero{ padding:40px 0 28px; }
+    .eyebrow{ font-size:11px; margin-bottom:16px; letter-spacing:0.1em; }
+    h1.name{ font-size:clamp(34px,10.5vw,46px); max-width:none; }
+    .role-line{ font-size:16px; margin-top:16px; }
+    .hero-meta{ gap:6px 16px; margin-top:20px; font-size:12.5px; }
+    .cta-row{ gap:10px; margin-top:24px; }
+    .cta-row .btn{ flex:1 1 calc(50% - 5px); justify-content:center; min-height:48px; padding:12px 10px; white-space:nowrap; font-size:13.5px; }
+    .cta-row .btn.primary{ flex-basis:100%; }
+    .ticker-wrap{ margin-top:28px; padding:11px 0; }
+
+    /* sections */
+    section{ padding:56px 0; }
+    #contact{ padding-top:48px !important; }
+    .section-head{ margin-bottom:24px; gap:10px; }
+    .section-head h2{ max-width:none; font-size:clamp(26px,7.4vw,32px); }
+    .section-head .note{ max-width:none; font-size:14px; }
+    .reveal{ transform:translateY(14px); }
+
+    /* collapsible copy */
+    .m-clamp:not(.is-open){
+      display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden;
+    }
+    .m-more{
+      display:inline-flex; align-items:center; min-height:36px; padding:0;
+      font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase;
+      color:var(--accent); background:none; border:0; cursor:pointer;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .case-copy:not(.is-open) .spec-list{ display:none; }
+
+    /* live work: edge-to-edge cards, taller image area */
+    .work-grid{ gap:36px; }
+    .brand-block-head{ margin-bottom:12px; }
+    .brand-block-head h3{ font-size:18px; }
+    .visit{ padding:9px 16px; min-height:38px; font-size:12px; }
+    .brand-block-grid, .brand-block-grid[style]{
+      grid-template-columns:1fr !important; gap:14px; margin:0 -16px;
+    }
+    .work-card{ border-radius:0; border-left:0; border-right:0; }
+    .mock{ aspect-ratio:4/3; }
+    .mock .mock-headline{ left:16px; right:16px; bottom:16px; }
+    .mock .word{ font-size:clamp(22px,7vw,28px); }
+    .mock .line{ font-size:13px; max-width:none; }
+    .mock .cta-pill{ font-size:12px; padding:9px 16px; }
+    .browser-chrome{ padding:9px 16px; }
+    .work-body{ padding:16px 16px 20px; }
+    .work-body p{ font-size:14.5px; margin:0 0 10px; }
+    .work-body .tag-row{ margin-top:6px; }
+    .compare-card .compare-body{ padding:10px 16px 14px; }
+    .mock.compare .compare-handle{ width:44px; height:44px; font-size:15px; }
+    .mock.compare .compare-tag{ bottom:10px; }
+    .mock.compare .compare-hint{ top:10px; }
+
+    /* case studies */
+    .case{ padding:36px 0; gap:20px; }
+    .case-media > img{
+      width:calc(100% + 32px); max-width:none; margin:0 -16px;
+      border-radius:0; border-left:0; border-right:0;
+    }
+    .case-media.pair{
+      display:flex; gap:10px; margin:0 -16px; padding:0 16px;
+      overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .case-media.pair::-webkit-scrollbar{ display:none; }
+    .case-media.pair > div{ flex:0 0 84%; scroll-snap-align:center; }
+    .case-media.pair img{ width:100%; margin:0; border-radius:var(--radius); border:1px solid var(--line); }
+    .case-copy h3{ font-size:24px; }
+    .case-copy p{ font-size:15px; margin:12px 0 4px; max-width:none; }
+    .case-copy .link-row{ margin-top:12px; }
+    .figma-link{ padding:9px 16px; min-height:38px; font-size:12px; }
+    .spec-list li{ grid-template-columns:76px 1fr; font-size:13.5px; }
+
+    /* craft: swipeable cards */
+    .creative-grid{
+      display:flex; gap:12px; margin:0 -16px; padding:0 16px 4px;
+      overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .creative-grid::-webkit-scrollbar{ display:none; }
+    .creative-card{ flex:0 0 84%; scroll-snap-align:center; }
+    .creative-card .cbody{ padding:14px 16px 16px; }
+    .creative-card p{ font-size:13.5px; }
+
+    /* about */
+    .about-grid{ gap:22px; }
+    .about-photo{ width:132px; height:132px; }
+    .about-copy p{ font-size:15px; margin:0 0 14px; }
+    .about-copy:not(.is-open) > p:nth-of-type(n+2){ display:none; }
+    .skills-grid{ margin-top:28px; grid-template-columns:repeat(2,1fr); }
+    .skill-col{ padding:16px 12px; border-right:0; border-bottom:1px solid var(--line); }
+    .skill-col:nth-child(odd){ padding-left:0; border-right:1px solid var(--line); }
+    .skill-col:nth-child(even){ padding-right:0; }
+    .skill-col ul{ font-size:13.5px; }
+
+    /* timeline: keep the dates, put them above each role */
+    .tl-item{ grid-template-columns:18px 1fr; padding-bottom:26px; }
+    .tl-item .rail{ grid-column:1; grid-row:1 / span 2; }
+    .tl-item .when{ display:block; grid-column:2; grid-row:1; font-size:11px; padding:0 0 4px 6px; }
+    .tl-item .content{ grid-column:2; grid-row:2; padding-left:6px; }
+    .tl-item .content p{ font-size:14px; }
+
+    /* contact */
+    .contact-wrap{ flex-direction:column; align-items:stretch; gap:28px; }
+    .contact-big{ max-width:none; font-size:clamp(28px,8.4vw,36px); }
+    .contact-list{ gap:0; font-size:15px; }
+    .contact-list > div{
+      display:flex; flex-wrap:wrap; align-items:baseline; gap:2px 10px;
+      padding:13px 0; min-height:48px; border-top:1px solid var(--line); overflow-wrap:anywhere;
+    }
+    .contact-list > div:last-child{ border-bottom:1px solid var(--line); }
+    .contact-list .k{ min-width:76px; margin-right:0; }
+    .resume-link{ font-size:15px; }
+    .footer-row{ flex-direction:column; gap:4px; }
+  }
+
+  @media (max-width:380px){
+    .case-media.pair > div, .creative-card{ flex-basis:88%; }
+    .cta-row .btn{ flex-basis:100%; }
+  }
 </style>
 
 <div class="ruler">
@@ -1222,6 +1375,53 @@
     draw();
   } else {
     (function loop(){ draw(); requestAnimationFrame(loop); })();
+  }
+})();
+</script>
+
+<script>
+(function(){
+  function toggleOpen(btn, targets, container){
+    var open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.textContent = open ? 'Show less ↑' : 'Read more ↓';
+    targets.forEach(function(t){ t.classList.toggle('is-open', open); });
+    if(container){ container.classList.toggle('is-open', open); }
+  }
+  function makeBtn(){
+    var b = document.createElement('span');
+    b.className = 'm-more mono';
+    b.setAttribute('role', 'button');
+    b.setAttribute('tabindex', '0');
+    b.setAttribute('aria-expanded', 'false');
+    b.textContent = 'Read more ↓';
+    return b;
+  }
+  function wire(btn, fn){
+    function go(e){ e.preventDefault(); e.stopPropagation(); fn(); }
+    btn.addEventListener('click', go);
+    btn.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ go(e); } });
+  }
+
+  // long paragraphs: clamp to 3 lines on phones, tap to expand
+  document.querySelectorAll(
+    '.section-head .note, .work-body > p:not(.compare-caption), .case-copy > p, .tl-item .content p, .creative-card .cbody p'
+  ).forEach(function(p){
+    var btn = makeBtn();
+    var container = p.parentElement && p.parentElement.classList.contains('case-copy') ? p.parentElement : null;
+    p.classList.add('m-clamp');
+    p.insertAdjacentElement('afterend', btn);
+    wire(btn, function(){ toggleOpen(btn, [p], container); });
+  });
+
+  // about: show the first paragraph, tap for the rest
+  var about = document.querySelector('.about-copy');
+  if(about){
+    var firstP = about.querySelector('p');
+    var btn = makeBtn();
+    btn.style.marginBottom = '10px';
+    firstP.insertAdjacentElement('afterend', btn);
+    wire(btn, function(){ toggleOpen(btn, [], about); });
   }
 })();
 </script>
