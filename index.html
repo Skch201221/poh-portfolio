@@ -263,6 +263,9 @@
   .project-media figcaption{ font-size:13px; color:var(--text-faint); margin-top:10px; }
 
   .project-desc{ font-size:15px; color:var(--text-dim); max-width:62ch; margin-top:20px; }
+  .project-metric{ font-size:13px; color:var(--text-faint); max-width:62ch; margin-top:10px; font-variant-numeric:tabular-nums; }
+  .project-metric .metric-source{ white-space:nowrap; }
+  .project-metric .metric-source::before{ content:"\00B7"; margin:0 .4em 0 .1em; }
 
   /* ---------- before/after compare ---------- */
   .compare{ cursor:ew-resize; }
@@ -567,7 +570,7 @@
 
   <section id="work">
     <div class="wrap">
-      <div class="section-head"><h2>Six storefront redesigns</h2><p class="note">Websites for sports and fitness retail brands, from B2B gym outfitting to flooring. Built on WordPress with the Flatsome theme, including custom PHP fixes, plugin setup and AI-assisted development. Every page is fully responsive.</p></div>
+      <div class="section-head"><h2>Six storefront redesigns</h2><p class="note">Websites for sports and fitness retail brands, from B2B gym outfitting to flooring. Built on WordPress with the Flatsome theme, including custom PHP fixes, plugin setup and AI-assisted development. Every page is fully responsive. The redesigned Merrira and Ultima Flooring both pass Core Web Vitals on mobile and desktop (Chrome field data, Oct 2026).</p></div>
 
       <div class="project">
         <div class="project-head">
@@ -610,6 +613,7 @@
           </figure>
         </div>
         <p class="project-desc">Storefront for home-gym equipment, with clear category navigation and product copy written for first-time buyers and older customers.</p>
+        <p class="project-metric" title="Chrome UX Report field data, origin level, 28 days to mid Oct 2026, via PageSpeed Insights">Passes Core Web Vitals on mobile and desktop: LCP&nbsp;1.0s&nbsp;/&nbsp;0.9s, INP&nbsp;138ms&nbsp;/&nbsp;82ms, CLS&nbsp;&le;&nbsp;0.02. <span class="metric-source">Chrome field data, Oct 2026</span></p>
       </div>
 
       <div class="project">
@@ -697,6 +701,7 @@
           </figure>
         </div>
         <p class="project-desc">Sister brand to Ultima Stadium. Rubber and PVC flooring for home gyms and studios, browsable by material, use and printed pattern.</p>
+        <p class="project-metric" title="Chrome UX Report field data, origin level, 28 days to mid Oct 2026, via PageSpeed Insights">Passes Core Web Vitals on mobile and desktop: LCP&nbsp;1.5s&nbsp;/&nbsp;1.0s, CLS&nbsp;&le;&nbsp;0.02. <span class="metric-source">Chrome field data, Oct 2026</span></p>
       </div>
 
       <div class="project">
